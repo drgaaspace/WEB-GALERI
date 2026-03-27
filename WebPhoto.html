@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Dirga | Cahaya & Rasa</title>
+    <style>
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: #ffffff; /* Putih Bersih */
+            color: #2c2c2c;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 80px 0 60px 0;
+            max-width: 700px;
+        }
+
+        h1 {
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Gallery Container */
+        .container {
+            width: 100%;
+            max-width: 650px;
+        }
+
+        /* Item Setiap Foto */
+        .item {
+            margin-bottom: 100px; /* Jarak jauh antar karya agar terasa lega */
+        }
+
+        .item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 25px;
+            /* Opsional: bayangan sangat halus */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* Caption puitis */
+        .caption {
+            font-family: 'Georgia', serif;
+            font-size: 1.05rem;
+            color: #444;
+            text-align: justify;
+            margin-bottom: 15px;
+            padding: 0 10px;
+        }
+
+        /* Data Teknis (Exif) */
+        .specs {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #bbb;
+            letter-spacing: 1px;
+            padding: 0 10px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            font-size: 0.7rem;
+            color: #ccc;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Responsif untuk layar kecil */
+        @media (max-width: 480px) {
+            header { padding: 50px 0 40px 0; }
+            h1 { font-size: 1.2rem; }
+            .item { margin-bottom: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Galeri Studio</h1>
+        <p class="subtitle">"Berbicara lewat cahaya, waktu, dan sekilas tangkapan rasa juga ribuan kode dan dinamika manusia"</p>
+    </header>
+
+    <div class="container">
+
+        <div class="item">
+            <img src="kopi-brii.jpg" alt="Suasana Kopi Brii">
+            <p class="caption">
+                Tahukah kamu? Bagaimana rasa bimbang itu menyerang dan kembali? Suatu saat ada hal yang akan kuceritakan dibalik kafe ini. Suatu saat mungkin juga cahaya cahaya itu akan redup dan menciptakan bimbang yang kembali menyerang. 
+
+                Dua orang di dalam cafe itu mungkin tidak akan pernah tahu bahwa mereka adalah objek dari kontemplasiku malam ini. Tapi bagiku, mereka adalah bukti bahwa cahaya dan kehangatan itu nyata, dan aku, dengan caraku sendiri, sedang berjalan menuju ke sana lewat lensa, cerita dan ribuan kode yang semoga dapat mengubah dunia.
+                 #ceritalensa #fotografer    #rasadankarsa
+                
+            </p>
+            <p class="specs">Infinix X6876 | f/1.75 | 1/25s | ISO 2287</p>
+        </div>
+
+        <div class="item">
+            <img src="senja.jpg" alt="Senja">
+            <p class="caption">
+                Aku melihatnya dari jauh—
+                bukan hanya karena ia bersinar,
+                tapi karena aku tahu, ia berani untuk memulai.
+
+                Cahaya itu indah—terlalu indah,
+                hingga kadang aku merasa kecil di hadapannya.
+                Seolah semua orang bisa mencapainya,
+                kecuali aku yang masih tertahan di antara rimbun keraguan.
+
+                Dan di saat itu,
+                aku bertanya dalam diam…
+                mengapa aku masih tertahan di antara rimbun keraguan?
+
+                Aku sering memberi rasa pada sebuah tangkapan gambar, tetapi ironinya aku sendiri kehilangan rasa itu. Dimana aku sebenarnya? Sampai kapan aku harus terus kehilangan rasa yang sama?
+
+                 #cahayafoto #matahari #rasadanmakna #fotografi
+            </p>
+            <p class="specs">Infinix X6876 | f/2.2 | 1/500s | ISO 100</p>
+        </div>
+        
+        <div class="item">
+          <img src="daun.jpg" alt="gambar daun">
+          <p class="caption">
+              Alam telah membawa cerita, dan aku sebatas hanya mendengarkan.
+              #naturephoto #photography #alam
+          </p>
+          
+          <p class="specs">Infinix x6876 |f/2.5 | 1/80s | ISO 350</p>
+         </div>
+         
+         <div class="item">
+           <img src="wayang.jpg" alt="Gambar wayang">
+           <p class="caption">
+             Wajahnya tak berbicara,
+             namun sikapnya menyimpan kisah panjang tentang bertahan.
+             Tentang waktu yang terus mengikis,
+             namun tak pernah benar-benar mampu meruntuhkan makna.
+             #budayaindonesia #heritage #fotografi
+           </p>
+           
+           <p class="specs">Infinix X6876 | f/2.0 | 1/100s | ISO500</p>
+         </div>
+         
+         <div class="item">
+           <img src="ayunan.jpg" alt="Gambar ayunan">
+           <p class="caption">
+             Ayunan yang sudah lama berhenti. Ia tidak lagi mengejar ketinggian, tidak lagi menghibur tawa. Kini, ia hanya diam di tengah rimbunnya alam, menjadi tempat bagi kenangan untuk bersandar, dan bagi waktu untuk beristirahat. Masih ada keindahan dalam diamnya, di mana setiap goresan di kayunya adalah sebuah cerita.
+             #ceritalensa #fotografi #rasadanmakna
+           </p>
+           
+           <p class="specs">Infinix X6876 | f/2.2 | 1/100s | ISO800</p>
+         </div>
+           
+         
+      </div>
+
+    <footer>
+        &copy; 2026 ELDINO DIRGA SATRA — DRGAASPACE DREAMPAGE
+    </footer>
+
+</body>
+</html>
