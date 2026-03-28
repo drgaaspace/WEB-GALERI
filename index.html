@@ -8,10 +8,14 @@
         /* Reset & Base */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
+        html {
+          scroll-behavior: smooth;
+        }
+        
         body {
-            background-color: #ffffff; /* Putih Bersih */
-            color: #2c2c2c;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #1a1a1a; /* abu-abu tua */
+            color: #f0f0f0;
+            font-family: 'Georgia', serif;
             line-height: 1.6;
             display: flex;
             flex-direction: column;
@@ -50,6 +54,10 @@
         /* Item Setiap Foto */
         .item {
             margin-bottom: 100px; /* Jarak jauh antar karya agar terasa lega */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px; 
         }
 
         .item img {
@@ -57,15 +65,23 @@
             height: auto;
             display: block;
             margin-bottom: 25px;
-            /* Opsional: bayangan sangat halus */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+ 
+        }
+        
+        /*Bingkai Foto*/
+        .card {
+          background-color:#222;/*abu abu gelap*/
+          padding: 12px;/*jarak antara foto dan tepi kotak (bingkai)*/
+          border-radius: 4px;/*membuat sudut kotak sedikit tumpul*/
+          box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+          margin-bottom: 25px;/*jarak narasi puitis*/
         }
 
         /* Caption puitis */
         .caption {
             font-family: 'Georgia', serif;
             font-size: 1.05rem;
-            color: #444;
+            color: #d1d1d1;
             text-align: justify;
             margin-bottom: 15px;
             padding: 0 10px;
@@ -73,11 +89,15 @@
 
         /* Data Teknis (Exif) */
         .specs {
-            font-family: monospace;
+          display: flex;
+          justify-content: space-between;
+          margin-top: 12px;
+            font-family: 'Courier New',monospace;
             font-size: 0.75rem;
-            color: #bbb;
+            color: #777;
             letter-spacing: 1px;
             padding: 0 10px;
+            text-transform: uppercase;
         }
 
         /* Footer */
@@ -95,6 +115,127 @@
             h1 { font-size: 1.2rem; }
             .item { margin-bottom: 60px; }
         }
+  
+        /* Mendesain gerakan:Gerakan foto munculdari bawah fadeInUp*/
+        @keyframes fadeInUp {
+          from{
+            opacity: 0;
+            transform: translateY(30px);/*mulai dari 30px di bawah posisi asli */
+          }
+          to{
+            opacity: 1;
+            transform: translateY(0); /*kembali ke posisi asli*/
+            
+          }
+        }
+        
+        /*pemicu animasi*/
+       .item.animate-in {
+         animation: fadeInUp 1.2s ease-out forwards; /*durasi pelan (1.2 detik), gerakan halus*/
+       }
+  
+       /*semua foto harus disembunyikan*/
+       .item {
+         opacity: 0;
+         transform: translateY(30px);
+         transition: opacity 0.8s ease-out,transform 0.8s ease-out;
+       }
+ 
+       /*about me*/
+       .about me {
+         padding: 60px 20px;
+         text-align: center;
+         max-width: 700px;
+         margin: 0 auto;
+       }
+       
+       /*about-me h2*/
+       .about-me h2 {
+         font-family: 'playfair Display',serif;
+         font-size: 1.8rem;
+         letter-spacing: 2px;
+         color: #f4f4f4;
+         margin-bottom: 20px;
+       }
+       
+       /*about-me p*/
+       .about-me p {
+         padding: 40px 20px;
+         line-height: 1.8;
+         font-family: 'inter',sans-serif;
+         line-height: 1,6;
+         color: #aaa;
+         font-size: 1.1rem;
+       }
+       
+       /*sub-text*/
+       .sub-text {
+         margin-top: 15px;
+         font-size: 0.9rem!important;
+         font-style: italic;
+         opacity: 0.7;
+       }
+       
+       .container-about {
+         max-width: 600px;
+         margin: 0 auto;
+         text-align: center;
+       }
+         
+         .guestbook {
+           padding: 60px 20px;
+           background-color: #1a1a1a;
+           text-align: center;
+           margin: 0 auto;
+           max-width: 600px;
+         }
+       
+         .massage-form {
+           display: flex;
+           flex-direction: column;
+           gap: 15px;
+           max-width: 90%;
+           margin: 30px auto;
+           align-items: center;
+           
+           }
+           
+           .massage-form input,
+           .massage-form textarea {
+             width: 100%;
+             background: rgba(255, 255, 255, 0.05);
+             border: 1px solid #444;
+             color: #fff;
+             padding: 12px;
+             border-radius: 8px;
+             font-family: inherit;
+             box-sizing: border-box;
+             max-width: 400px;
+           }
+           
+           .massage-form input:focus,
+           .massage-form textarea:focus {
+             border-color: #666;
+             outline: none;
+           }
+           
+           .massage-form button {
+             width: 100%;
+             max-width: 400px;
+             background: #333;
+             color: #fff;
+             border: none;
+             padding: 15px;
+             cursor: pointer;
+             transition: 0.3s;
+             letter-spacing: 2px;
+             text-transform: uppercase;
+             border-radius: 8px;
+           }
+           
+           .massage-form button:hover {
+             background: #444;
+           }
     </style>
 </head>
 <body>
@@ -103,10 +244,27 @@
         <h1>Galeri Studio</h1>
         <p class="subtitle">"Berbicara lewat cahaya, waktu, dan sekilas tangkapan rasa juga ribuan kode dan dinamika manusia"</p>
     </header>
+    <section class:"about-me">
+      <div class="container-about item"
+      <h2>Dibalik Lensa.</h2>
+      <p>
+        Hai, sederhana saja, nama saya <strong>Dirga</strong>.
+        Bagi saya, fotografi bukan hanya sekedar menekan tombol rana,
+        tapi tentang menangkap resonasi dan cahaya yang sering luput dari kata- kata.
+      </p>
+      <p class="sub-text">
+        Menggunakan <em>Infinix X6876</em>,
+        Saya belajar bahwa alat hanyalah perantara;
+        Cerita sesungguhnya ada pada bagaimana kita melihat dunia.
+      </p>
+      </div>
+    </section>
+    
 
     <div class="container">
 
         <div class="item">
+          <div class="card">
             <img src="kopi-brii.jpg" alt="Suasana Kopi Brii">
             <p class="caption">
                 Tahukah kamu? Bagaimana rasa bimbang itu menyerang dan kembali? Suatu saat ada hal yang akan kuceritakan dibalik kafe ini. Suatu saat mungkin juga cahaya cahaya itu akan redup dan menciptakan bimbang yang kembali menyerang. 
@@ -115,10 +273,12 @@
                  #ceritalensa #fotografer    #rasadankarsa
                 
             </p>
-            <p class="specs">Infinix X6876 | f/1.75 | 1/25s | ISO 2287</p>
+            <p class="specs">Infinix X6876 | f/1.4 | 1/60s | ISO 6400</p>
+            </div>
         </div>
 
         <div class="item">
+          <div class="card">
             <img src="senja.jpg" alt="Senja">
             <p class="caption">
                 Aku melihatnya dari jauh—
@@ -138,20 +298,24 @@
 
                  #cahayafoto #matahari #rasadanmakna #fotografi
             </p>
-            <p class="specs">Infinix X6876 | f/2.2 | 1/500s | ISO 100</p>
+            <p class="specs">Infinix X6876 | f/1.75 | 1/400s | ISO 100</p>
+            </div>
         </div>
-        
+  
         <div class="item">
+          <div class="card">
           <img src="daun.jpg" alt="gambar daun">
           <p class="caption">
               Alam telah membawa cerita, dan aku sebatas hanya mendengarkan.
               #naturephoto #photography #alam
           </p>
           
-          <p class="specs">Infinix x6876 |f/2.5 | 1/80s | ISO 350</p>
+          <p class="specs">Infinix x6876 | f/1.75 | 1/80s | ISO 800</p>
          </div>
-         
+         </div>
+  
          <div class="item">
+           <div class="card">
            <img src="wayang.jpg" alt="Gambar wayang">
            <p class="caption">
              Wajahnya tak berbicara,
@@ -161,25 +325,134 @@
              #budayaindonesia #heritage #fotografi
            </p>
            
-           <p class="specs">Infinix X6876 | f/2.0 | 1/100s | ISO500</p>
+           <p class="specs">Infinix X6876 | f/1.75 | 1/60s | ISO 273</p>
+           </div>
          </div>
-         
+  
          <div class="item">
+           <div class="card">
            <img src="ayunan.jpg" alt="Gambar ayunan">
            <p class="caption">
              Ayunan yang sudah lama berhenti. Ia tidak lagi mengejar ketinggian, tidak lagi menghibur tawa. Kini, ia hanya diam di tengah rimbunnya alam, menjadi tempat bagi kenangan untuk bersandar, dan bagi waktu untuk beristirahat. Masih ada keindahan dalam diamnya, di mana setiap goresan di kayunya adalah sebuah cerita.
              #ceritalensa #fotografi #rasadanmakna
            </p>
            
-           <p class="specs">Infinix X6876 | f/2.2 | 1/100s | ISO800</p>
+           <p class="specs">Infinix X6876 | f/1.75 | 1/75s | ISO 100</p>
+           </div>
+         </div>
+         
+        <div class="item">
+          <div class="card">
+          <img src="kereta.jpg" alt="gambar kereta">
+          <p class="caption">
+  Bagiku foto adalah cara dimana kita merasa, menyentuh dan mencintai apa yang telah tertangkap oleh kamera, ia akan mengingatkan tentang hal kecil setelah kita lupa segalanya. (~Aaron Siskind). 
+Tidak ada foto yang sempurna, tetapi melalui ketidaksempurnaan itulah nyawa sebuah foto itu hidup, dari situlah kita akan sadar seberapa cepat dunia berjalan lewat cuplikan waktu, cahaya dan perasaan yang tak terlihat.
+
+#fotografi #fotografer #captured #senjabercerita
+          </p>
+          
+          <p class="specs">Infinix x6876 | f/1.75 | 1/169s | ISO 45</p>
+         </div>
+         </div>
+         
+         <div class="item">
+          <div class="card">
+          <img src="topeng.jpg" alt="gambar topeng">
+          <p class="caption">
+             Wajahnya tegas, mungkin ia adalah cerminan bagaimana waktu telah ia lewati, sepanjang suasana dan warna warni kehidupan, konon katanya, manusia akan tau sesuatu itu amat berharga setelah ia melewatinya, dan hanya akan ada 2 pilihan, bersyukur atau menyesal.
+             #topengbudaya #heritage #fotografi
+          </p>
+          
+          <p class="specs">Infinix x6876 | f/1.75 | 1/60s | ISO 311</p>
+         </div>
+         </div>
+         
+         <div class="item">
+          <div class="card">
+          <img src="ukiran.jpg" alt="gambar ukiran kayu">
+          <p class="caption">
+ Menarik bukan? Mungkin terlintas sejenak, bagaimana bisa seorang manusia mengukir seperti itu? 
+ Pernahkah kamu berpikir bahwa setiap lekuk ini adalah rekaman waktu? Kayu yang diam ini menyimpan ribuan ketukan palu dan kesabaran seorang pemahat yang mungkin sudah tak ada lagi.
+ #ukirankayu #ukirandanwaktu #fotografi
+          </p>
+          
+          <p class="specs">Infinix x6876 | f/1.75 | 1/100s | ISO 500</p>
+         </div>
+         </div>
+         
+         <div class="item">
+           <div class="card">
+             <img src="jembatan.jpg" alt="gambar jembatan">
+             <p class="caption">
+              Tersembunyi di balik simfoni dedaunan yang berbisik ditiup angin, jembatan merah ini berdiri anggun di atas aliran air yang tenang. Setiap langkah di atasnya adalah perjalanan menuju kedamaian, menjauhkan kita sejenak dari hiruk-pikuk kehidupan. Di sinilah, di bawah bayang-bayang pepohonan yang rindang, alam menawarkan pelukan tenangnya, mengundang kita untuk merenung dan menemukan harmoni yang terlupakan.
+              
+#jembatansimfoni  #fotografi  #ceritakita 
+             </p>
+             <p class="specs">
+               Infinix x6876 | f/1.75 | 1/80s | ISO 750
+             </p>
+           </div>
+         </div>
+         
+         <div class="item">
+           <div class="card">
+             <img src="botol.jpg" alt="Gambar botol">
+             <p class="caption">
+               Di dalam botol itu, laut telah lama mengeras menjadi keheningan yang kuning keemasan. Sang nakhoda tak butuh kompas, karena arah mata angin hanyalah fiksi di balik kaca yang tebal. Ia terjebak dalam sebuah 'selamanya' yang sempit, sebuah monumen bagi rindu yang tak sempat berlabuh.
+#fotografi #botolkapal #maknadanrasa
+             </p>
+             <p class="specs">
+               Infinix x6876 | f/1.4 | 1/60s | ISO 6400 
+             </p>
+           </div>
          </div>
            
          
       </div>
+      <section class="guestbook item">
+        <div class="container-about">
+          <h2>Tinggalkan Pesan</h2>
+          <p class="sub-text">
+            Tinggalkan Kritik dan Saran disini.
+          </p>
+          <form class="massage-form">
+            <input type="text"
+            placeholder="Nama Kamu...." required>
+            <textarea placeholder="Pesan Untuk Author" rows="4" required></textarea>
+            <button type="submit">Kirim Pesan</button>
+          </form>
+        </div>
+      </section>
 
     <footer>
-        &copy; 2026 ELDINO DIRGA SATRA — DRGAASPACE DREAMPAGE
+        &copy; 2026 ELDINO DIRGA SATRA — DRGAASPACE DREAMPAGE.
+        Thanks for a lot.
     </footer>
+    <script>
+      //1.Mencari semua item foto di halaman
+      const animatedItems =
+      document.querySelectorAll('.item')
+      //1.Memdesain penjaga (intersection observer)
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+        //jika foto sudah terlihat di layar
+        if (entry.isIntersecting){
+          //tambahkan class 'animate-in' agar opacity berubah jadi 1
+          entry.target.classList.add('animate-in');
+        }else{
+          entry.target.classList.remove('animate-in');
+        }
+      });
+      }, {
+        //pemicu aktif saat 20% bagian foto sudah masuk ke layar hp 
+        threshold: 0.1});
+      //3. Suruh pengamat tadi mengawasi setiap item foto satu per satu 
+      animatedItems.forEach(item => {
+        observer.observe(item);
+      
+      });
+      
+    </script>
 
 </body>
 </html>
