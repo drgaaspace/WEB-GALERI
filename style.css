@@ -1,0 +1,295 @@
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html {
+          scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #1a1a1a; /* abu-abu tua */
+            color: #f0f0f0;
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+           /*Tombol Navigasi Baru*/
+           .navbar {
+             width: 100%;
+             display: flex;
+             justify-content: space-between;
+             padding: 30px 10%;
+             align-items: center;
+           }
+             
+             .logo {
+               font-weight: bold;
+               letter-spacing: 2px;
+               color: #fff;
+             }
+               .nav-links a {
+                 text-decoration: none;
+                 color: #888;
+                 margin-left: 20px;
+                 font-size: 0.9rem;
+                 transition: 0.3s;
+                 
+               }
+               
+               .nav-links a.active,.nav-links a:hover { color: #fff;}
+               
+        
+        
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 80px 0 60px 0;
+            max-width: 700px;
+        }
+
+        h1 {
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            color: #888;
+            font-size: 0.95rem;
+        }
+
+        /* Gallery Container */
+        .container {
+            width: 100%;
+            max-width: 650px;
+        }
+
+        .item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 25px;
+ 
+        }
+        
+        /*Bingkai Foto*/
+        .card {
+          background-color:#222;/*abu abu gelap*/
+          padding: 12px;/*jarak antara foto dan tepi kotak (bingkai)*/
+          border-radius: 4px;/*membuat sudut kotak sedikit tumpul*/
+          box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+          margin-bottom: 25px;/*jarak narasi puitis*/
+        }
+
+        /* Caption puitis */
+        .caption {
+            font-family: 'Georgia', serif;
+            font-size: 1.05rem;
+            color: #d1d1d1;
+            text-align: justify;
+            margin-bottom: 15px;
+            padding: 0 10px;
+        }
+
+        /* Data Teknis (Exif) */
+        .specs {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 12px;
+            font-family: 'Courier New',monospace;
+            font-size: 0.75rem;
+            color: #777;
+            letter-spacing: 1px;
+            padding: 0 10px;
+            text-transform: uppercase;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            font-size: 0.7rem;
+            color: #ccc;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+               .btn-primary {
+                 display: inline-block;
+                 margin-top: 25px;
+                 padding: 15px 40px;
+                 background: #333;
+                 color: #fff;
+                 text-decoration-color: none;
+                 border-radius: 8px;
+                 font-size: 0.1rem;
+                 font-weight: bold;
+                 letter-spacing: 1.5px;
+                 text-transform: uppercase;
+                 transition: 0.3s;
+               }
+              
+              
+               .btn-primary:hover {background: #444;
+               transform: scale(1.05);}
+               
+               /*animasi*/
+               .fade-in {animation: fadeInUp 1.5s ease-out;}
+               
+               
+       /*semua foto harus disembunyikan*/
+       .item {
+         margin-bottom: 100px; /* Jarak jauh antar karya agar terasa lega */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px; 
+         opacity: 0;
+         transform: translateY(30px);
+         transition: opacity 0.8s ease-out,transform 0.8s ease-out;
+       }
+       
+        /*pemicu animasi*/
+       .item.animate-in {
+         animation: fadeInUp 1.2s ease-out forwards; /*durasi pelan (1.2 detik), gerakan halus*/
+       }
+ 
+       /*about me*/
+       .about me {
+         padding: 60px 20px;
+         text-align: center;
+         max-width: 700px;
+         margin: 0 auto;
+       }
+       
+       /*about-me h2*/
+       .about-me h2 {
+         font-family: 'playfair Display',serif;
+         font-size: 1.8rem;
+         letter-spacing: 2px;
+         color: #f4f4f4;
+         margin-bottom: 20px;
+       }
+       
+       /*about-me p*/
+       .about-me p {
+         padding: 40px 20px;
+         line-height: 1.8;
+         font-family: 'inter',sans-serif;
+         line-height: 1,6;
+         color: #aaa;
+         font-size: 1.1rem;
+       }
+       
+       /*sub-text*/
+       .sub-text {
+         margin-top: 15px;
+         font-size: 0.9rem!important;
+         font-style: italic;
+         opacity: 0.7;
+       }
+       
+       .container-about {
+         max-width: 600px;
+         margin: 0 auto;
+         text-align: center;
+       }
+         
+         .guestbook {
+           padding: 60px 20px;
+           background-color: #1a1a1a;
+           text-align: center;
+           margin: 0 auto;
+           max-width: 600px;
+         }
+       
+         .massage-form {
+           display: flex;
+           flex-direction: column;
+           gap: 15px;
+           max-width: 90%;
+           margin: 30px auto;
+           align-items: center;
+           
+           }
+           
+           .massage-form input,
+           .massage-form textarea {
+             width: 100%;
+             background: rgba(255, 255, 255, 0.05);
+             border: 1px solid #444;
+             color: #fff;
+             padding: 12px;
+             border-radius: 8px;
+             font-family: inherit;
+             box-sizing: border-box;
+             max-width: 400px;
+           }
+           
+           .massage-form input:focus,
+           .massage-form textarea:focus {
+             border-color: #666;
+             outline: none;
+           }
+           
+           .massage-form button {
+             width: 100%;
+             max-width: 400px;
+             background: #333;
+             color: #fff;
+             border: none;
+             padding: 15px;
+             cursor: pointer;
+             transition: 0.3s;
+             letter-spacing: 2px;
+             text-transform: uppercase;
+             border-radius: 8px;
+           }
+           
+           .massage-form button:hover {
+             background: #444;
+           }
+           
+           .profil-img {
+             display: block !important;
+             width: 200px !important;
+             height: 200px !important;
+             object-fit: cover !important;
+             border-radius: 50% !important;
+             margin: 40px auto !important;
+             border: 3px solid #333;
+             box-shadow: 0 10px 20px rgba(0,0,0,0.5) !important;
+             transition: 0.3s ease;
+           }
+           .profil-img:hover {
+             transform: scale(1.05);
+             border-color: #555;
+           }
+           
+           
+           /* Responsif untuk layar kecil */
+        @media (max-width: 480px) {
+            header { padding: 50px 0 40px 0; }
+            h1 { font-size: 1.2rem; }
+            .item { margin-bottom: 60px; }
+        }
+  
+        /* Mendesain gerakan:Gerakan foto munculdari bawah fadeInUp*/
+        @keyframes fadeInUp {
+          from{
+            opacity: 0;
+            transform: translateY(30px);/*mulai dari 30px di bawah posisi asli */
+          }
+          to{
+            opacity: 1;
+            transform: translateY(0); /*kembali ke posisi asli*/
+            
+          }
+        }
+
