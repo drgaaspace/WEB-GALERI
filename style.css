@@ -270,6 +270,40 @@
            .profil-img:hover {
              transform: scale(1.05);
              border-color: #555;
+             
+           }
+           
+           .social-links {
+             margin-top: 40px;
+             text-align: center;
+             border-top: 1px solid #333;
+             padding-top: 20px;
+           }
+           
+           .social-links p {
+             font-size: 0.9rem;
+             color: #888;
+             margin-bottom: 15px;
+           }
+           
+           .social-icons {
+             display: flex;
+             justify-content: center;
+             gap: 20px;
+           }
+           
+           .social-icons a {
+             color: #fff;
+             text-decoration: none;
+             font-size: 0.8rem;
+             letter-spacing: 1px;
+             text-transform: uppercase;
+             transition: 0.3s;
+             opacity: 0.7;
+           }
+           .social-icons a:hover {
+             opacity:1;
+             color: #007bff;
            }
            
            
