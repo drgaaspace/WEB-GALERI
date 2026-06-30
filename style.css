@@ -8,7 +8,7 @@
         body {
             background-color: #1a1a1a; /* abu-abu tua */
             color: #f0f0f0;
-            font-family: 'Georgia', serif;
+            font-family: 'Playfair Display', 'Georgia' serif;
             line-height: 1.6;
             display: flex;
             flex-direction: column;
@@ -69,7 +69,12 @@
         /* Gallery Container */
         .container {
             width: 100%;
-            max-width: 650px;
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            gap: 120px;
+            margin-top: 50px;
+
         }
 
         .item img {
@@ -83,43 +88,151 @@
         /*Bingkai Foto*/
         .card {
           background-color:#222;/*abu abu gelap*/
-          padding: 12px;/*jarak antara foto dan tepi kotak (bingkai)*/
-          border-radius: 4px;/*membuat sudut kotak sedikit tumpul*/
-          box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-          margin-bottom: 25px;/*jarak narasi puitis*/
+          padding: 24px;/*jarak antara foto dan tepi kotak (bingkai)*/
+          border-radius: 8px;/*membuat sudut kotak sedikit tumpul*/
+          box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+          display: flex;
+          align-items: flex-start;
+          gap: 45px;
+          width: 100%;
+          margin-bottom: 0;
         }
+
+        
+        .card-image {
+              
+          flex: 1;
+          width: 50%;
+
+        }
+
+
+        .card-image img {
+          width: 100%;
+          height: auto;
+          display: block;
+          border-radius: 4px;
+
+        }
+
+
+        .card-image img:hover {
+          transform: scale(1.02);
+
+        }
+
+
+        .card-content {
+          flex: 1;
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+
+        }
+
+
+        .item:nth-child(even) .card {
+         flex-direction: row-reverse;
+        }
+
+
+
+
+
 
         /* Caption puitis */
         .caption {
             font-family: 'Georgia', serif;
             font-size: 1.05rem;
-            color: #d1d1d1;
+            color: #e0e0e0;
             text-align: justify;
-            margin-bottom: 15px;
-            padding: 0 10px;
+            line-height: 1.9;
+            margin-bottom: 25px;
+            letter-spacing: 0.3px;
+            white-space: pre-line;
+        }
+
+
+        .item:nth-child(even) .caption{
+
+          text-align: justify;
         }
 
         /* Data Teknis (Exif) */
         .specs {
-          display: flex;
-          justify-content: space-between;
-          margin-top: 12px;
             font-family: 'Courier New',monospace;
             font-size: 0.75rem;
-            color: #777;
-            letter-spacing: 1px;
-            padding: 0 10px;
+            color: #888;
+            letter-spacing: 1.5px;
+            padding-top:  15px;
             text-transform: uppercase;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
         }
 
         /* Footer */
         footer {
-            padding: 60px 0;
-            font-size: 0.7rem;
-            color: #ccc;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            padding: 80px 0 60px 0;
+            width: 100%;
         }
+
+         .footer-gear {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          gap: 28px;
+          opacity: 0.5;
+          transition: opacity 0.4s ease;
+         }
+
+         footer:hover .footer-gear {
+          opacity: 0.9;
+         }
+
+         .gear-label {
+          font-family: 'Courier New',monospace;
+          font-size: 10px;
+          color: #888888;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+         }
+
+         
+         .gear-logo-png {
+          height: 14px !important;  /* Tinggi dasar seragam */
+          width: auto !important;   /* Lebar otomatis proporsional */
+          display: block;
+          object-fit: contain;
+          
+          /* MEMAKSA SEMUA WARNA LOGO MENJADI PUTIH MINIMALIS */
+          filter: brightness(0) invert(1); 
+         }
+
+         img[src="sony.png"] {
+          height: 230px !important;
+         }
+
+         img[src="infinix.png"] {
+          height: 230px !important;
+         }
+         .copyright {
+          font-family: 'Courier New',monospace;
+          font-size: 11px;
+          letter-spacing: 1px;
+          color: #555555;
+          text-transform: uppercase;
+         }
                .btn-primary {
                  display: inline-block;
                  margin-top: 25px;
@@ -145,19 +258,22 @@
                
        /*semua foto harus disembunyikan*/
        .item {
+        width: 100%;
          margin-bottom: 100px; /* Jarak jauh antar karya agar terasa lega */
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-top: 50px; 
          opacity: 0;
-         transform: translateY(30px);
-         transition: opacity 0.8s ease-out,transform 0.8s ease-out;
+         transform: translateY(40px);
+         transition: opacity 1s ease-out,
+                    transform 1s ease-out;
        }
        
         /*pemicu animasi*/
        .item.animate-in {
-         animation: fadeInUp 1.2s ease-out forwards; /*durasi pelan (1.2 detik), gerakan halus*/
+         opacity: 1;
+         transform: translateY(0);
        }
  
        /*about me*/
@@ -308,11 +424,72 @@
            
            
            /* Responsif untuk layar kecil */
-        @media (max-width: 480px) {
-            header { padding: 50px 0 40px 0; }
-            h1 { font-size: 1.2rem; }
-            .item { margin-bottom: 60px; }
+        @media (max-width: 768px) {
+          .card, .item:nth-child(even) .card {
+            flex-direction: column;
+            gap: 25px;
+            padding: 16px;
+          }
+          .card-image, .card-content {
+            width: 100%;
+          }
+          .container{
+            gap: 80px;
+          }
+
         }
+
+          .pagination-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+
+          }
+
+          .pagination {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+
+          }
+            
+          .page-link {
+            display: inline-block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 14px;
+            line-height: 1;
+            transition: all 0.3s ease;
+          }
+
+          .page-link:hover:not(.disabled):not(.active) {
+            background-color: #ffffff;
+            color: #121212;
+            border-color: #ffffff;
+
+          }
+           
+          .page-link.active {
+            background-color: #ffffff;
+            color: #121212;
+            border-color: #ffffff;
+            font-weight: bold;
+            cursor: default;
+          }
+
+          .page-link.disabled {
+            color: #555555;
+            border-color: #222222;
+            cursor: not-allowed;
+          }
+
+
+
+        
   
         /* Mendesain gerakan:Gerakan foto munculdari bawah fadeInUp*/
         @keyframes fadeInUp {
